@@ -25,28 +25,33 @@ switch (command) {
 
   // add tenant
   case 'add':
-    commandLib.add(tenantId, tenantDir)
+    commandLib.add(tenantId)
     break;
 
   // delete tenant
   case 'remove':
   case 'delete':
-    commandLib.remove(tenantId, tenantDir)
+    commandLib.remove(tenantId)
     break;
 
   // start tenant app
   case 'start':
-    commandLib.start(tenantId, tenantDir)
+    commandLib.start(tenantId)
     break;
 
   // restart tenant app
   case 'restart':
-    commandLib.restart(tenantId, tenantDir)
+    commandLib.restart(tenantId)
     break;
 
   // stop tenant app
   case 'stop':
-    commandLib.stop(tenantId, tenantDir)
+    commandLib.stop(tenantId)
+    break;
+
+  // stop tenant app
+  case 'model':
+    commandLib.model(tenantId)
     break;
 
   default:
