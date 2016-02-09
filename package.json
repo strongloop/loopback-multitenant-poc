@@ -22,6 +22,7 @@
     "loopback-component-explorer": "^2.3.0",
     "loopback-datasource-juggler": "^2.44.0",
     "minimist": "^1.2.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "yamljs": "^0.2.4"
   }
 }
