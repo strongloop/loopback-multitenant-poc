@@ -2,7 +2,7 @@
 
 var argv = require('minimist')(process.argv.slice(2));
 var fs = require('fs-extra');
-var commandLib = require('./lib/commands.js');
+var commandLib = require('./lib/mtm-commands.js');
 
 if (argv._.length < 1) {
   return commandLib.help();
@@ -11,11 +11,10 @@ if (argv._.length < 1) {
 var command = argv._[0];
 
 if (argv._.length < 2) {
-  return console.log('\n Usage: mt %s <tenant id>\n', command)
+  return console.log('\n Usage: mtc %s <tenant id>\n', command)
 }
 
 var tenantDir = 'tenants/' + tenantId;
-var tenantProcesses = {};
 
 // this is where all the tenant apps will reside
 fs.mkdirpSync('tenants/');
@@ -53,7 +52,7 @@ switch (command) {
     commandLib.stop(tenantId)
     break;
 
-  // stop tenant app
+  // add model to tenant app
   case 'model':
     commandLib.model(argv._[1]);
     break;

@@ -1,48 +1,56 @@
 # Multi-tenant LoopBack POC
 
-This is a POC on implementing multi-tenancy in LoopBack using isolated processa and data sources.
+This is a POC on implementing multi-tenancy in LoopBack using isolated processes and data sources.
 
-## Usage
+## Features
+
+* Customize `model-config.json` and `datasources.json` for each tenant
+* Each tenant can have custom middleware, components, and boot scripts, if required
+
+## Tenant Manager
+
+The tenant manager is available as the `mtm` command on the command line.
 
 Use a `tenant id` composed of alphanumerical characters only.
 
 **Add tenant**
 
 ```
-$ mt add <tenant id>
+$ mtm add <tenant id>
 ```
 
 **Remove tenant**
 
 ```
-$ mt remove <tenant id>
+$ mtm remove <tenant id>
 ```
 
 **Start tenant app**
 
 ```
-$ mt start <tenant id>
+$ mtm start <tenant id>
 ```
 
 **Stop tenant app**
 
 ```
-$ mt stop <tenant id>
+$ mtm stop <tenant id>
 ```
 
 **Restart tenant app (after making configuration changes)**
 
 ```
-$ mt restart <tenant id>
+$ mtm restart <tenant id>
 ```
 
 **Create model for tenant**
 
 ```
-$ mt model <tenant id:model name>
+$ mtm model <tenant id:model name>
 ```
 
-## Features
+## Gateway Manager
 
-* Customize `model-config.json` and `datasources.json` for each tenant
-* Each tenant can have custom middleware, components, and boot scripts, if required
+The gateway manager is available as the `mtg` command on the command line.
+
+The gateway must be started before the tenant apps can be accessed.
