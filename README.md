@@ -5,6 +5,7 @@ This is a POC on implementing multi-tenancy in LoopBack using isolated processes
 ## Features
 
 * Customize `model-config.json` and `datasources.json` for each tenant
+* A tenant's `model-config.json` and `datasources.json` can be updated without having to restart other tenants
 * Each tenant can have custom middleware, components, and boot scripts, if required
 
 ## Gateway Manager
@@ -21,11 +22,15 @@ $ mtg start
 
 **Restart gateway**
 
+Note supported currently.
+
 ```
 $ mtg restart
 ```
 
 **Stop gateway**
+
+Note supported currently. To stop, press `ctl+c`.
 
 ```
 $ mtg stop
@@ -53,17 +58,23 @@ $ mtm remove <tenant id>
 
 **Start tenant app**
 
+Note supported currently.
+
 ```
 $ mtm start <tenant id>
 ```
 
 **Stop tenant app**
 
+Note supported currently.
+
 ```
 $ mtm stop <tenant id>
 ```
 
 **Restart tenant app (after making configuration changes)**
+
+Note supported currently.
 
 ```
 $ mtm restart <tenant id>
