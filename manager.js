@@ -11,7 +11,7 @@ if (argv._.length < 1) {
 var command = argv._[0];
 
 if (argv._.length < 2) {
-  return console.log('\n Usage: mtc %s <tenant id>\n', command)
+  return console.log('\n Usage: mtm %s <tenant id>\n', command)
 }
 
 var tenantDir = 'tenants/' + tenantId;

@@ -22,13 +22,13 @@ $ mtg start
 **Restart gateway**
 
 ```
-$ mtm restart
+$ mtg restart
 ```
 
 **Stop gateway**
 
 ```
-$ mtm stop
+$ mtg stop
 ```
 
 ## Tenant Manager
