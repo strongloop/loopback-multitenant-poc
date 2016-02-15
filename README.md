@@ -14,7 +14,7 @@ Gateway starts the tenant apps, and requests are mapped using their port numbers
 
 Gateway is aware about new tenants being added and existing tenants being removed.
 
-PS: The code is modularly organized and well commented, feel free to browse through it.
+PS: The code is modularly organized and well commented, please browse through it to better understand the implementation.
 
 ## Instructions for a quick demo
 
