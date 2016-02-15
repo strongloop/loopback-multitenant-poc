@@ -61,5 +61,3 @@ switch (command) {
     commandLib.help();
 
 }
-
-// Create a sample app with these requirements: app1 with Customer, Order to mysql, app2 with Customer, Product, Review to mongodb

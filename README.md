@@ -2,6 +2,69 @@
 
 This is a POC on implementing multi-tenancy in LoopBack using isolated processes and data sources.
 
+## How is it implemented?
+
+A proxy (Gateway) sits infront of individul tenant LoopBack apps. Using the first URL segment as the tenant identifier, Gateway forwards the requests to the corresponding tenant apps.
+
+Tenant apps have their own configurations.
+
+Tenant apps are mapped using their port numbers. In this POC, this allows easy access to the apps' *explorer* app. Unix sockets might be a better option in the actual implementation. 
+
+Gateway is aware about new tenants being added and existing tenants being removed.
+
+## Instructions for a quick overview
+
+We want to create two tenants with their own data sources and models.
+
+Tenant one, named *foo*, will use MySQL as the datasource and have the models *Customer* and *Order*. Tenant two, named *bar*, will use MongoDB as the data source and have the models Customer, Product, and Review.
+
+**Clone this repo**
+
+```
+$ git clone <repo location>
+```
+
+**Install dependencies**
+
+```
+$ npm install
+```
+
+**Install commandline tools**
+
+```
+$ [sudo] npm link
+```
+
+**Create tenant "foo"**
+
+```
+$ mtm add foo
+```
+**Create "Customer" model for tenant "foo"**
+
+```
+$ mtm model foo:Customer
+```
+**Create "Order" model for tenant "foo"**
+
+```
+$ mtm model foo:Order
+```
+Make the necessary changes in the `datasources.json`, `model-config.json`, and the model files.
+
+Similarly, add tenant "bar", and create and edit the necessary files.
+
+**Start the Gateway**
+
+```
+$ mtg start
+```
+
+The Gateway will start the tenant apps, and accept connections on behalf of them.
+
+The tenant "foo" will be accessible at `http://localhost:9000/apple`, and so on.
+
 ## Features
 
 * Customize `model-config.json` and `datasources.json` for each tenant
