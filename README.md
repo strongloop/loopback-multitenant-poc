@@ -1,30 +1,36 @@
 # Multi-tenant LoopBack POC
 
-This is a POC on implementing multi-tenancy in LoopBack using isolated processes and data sources.
+This is a POC on implementing multi-tenancy in LoopBack using isolated processes and isolated data sources.
 
 ## How is it implemented?
 
-A proxy (Gateway) sits infront of individul tenant LoopBack apps. Using the first URL segment as the tenant identifier, Gateway forwards the requests to the corresponding tenant apps.
+A proxy (**Gateway**) sits in front of the individual tenant apps. Using the first segment of the URL path as the tenant identifier, Gateway forwards requests to the corresponding tenant app.
 
-Tenant apps have their own configurations.
+Tenant apps are complete LoopBack apps with their own configurations and application files, with a shared `node_modules` directory.
 
-Tenant apps are mapped using their port numbers. In this POC, this allows easy access to the apps' *explorer* app. Unix sockets might be a better option in the actual implementation. 
+In the actual implementation tenants will be exposed to limited configurability of their apps via an API - mainly the ability to configure datasources and define models. For the POC, please edit the tenant app files manually.
+
+Gateway starts the tenant apps, and requests are mapped using their port numbers. In this POC, this allows easy access to the apps' *explorer* app. Unix sockets might be a better option in the actual implementation.
 
 Gateway is aware about new tenants being added and existing tenants being removed.
 
-## Instructions for a quick overview
+PS: The code is modularly organized and well commented, feel free to browse through it.
 
-We want to create two tenants with their own data sources and models.
+## Instructions for a quick demo
 
-Tenant one, named *foo*, will use MySQL as the datasource and have the models *Customer* and *Order*. Tenant two, named *bar*, will use MongoDB as the data source and have the models Customer, Product, and Review.
+We want to create two tenants with their own datasources and models.
+
+Tenant one, named *foo*, will use MySQL as the datasource and have the models *Customer* and *Order*. Tenant two, named *bar*, will use MongoDB as the data source and have the models *Customer*, *Product*, and *Review*.
 
 **Clone this repo**
 
 ```
-$ git clone <repo location>
+$ git clone git@github.com:strongloop/loopback-multitenant-poc.git
 ```
 
 **Install dependencies**
+
+`cd` to the repo directory and install the dependencies.
 
 ```
 $ npm install
@@ -35,6 +41,12 @@ $ npm install
 ```
 $ [sudo] npm link
 ```
+
+This will install two commandline tools - `mtm` (multi-tenant manager) and `mtg` (multi-tenant gateway). `mtm` is used for managing tenants, `mtg` is the Gateway manager.
+
+In the actual implementation, the functionality of these two tools will be also be exposed as APIs.
+
+NOTE: Only the very basic functionality of `mtm` and `mtg` are implemented in the POC as of 15th Feb, 2016.
 
 **Create tenant "foo"**
 
@@ -61,9 +73,11 @@ Similarly, add tenant "bar", and create and edit the necessary files.
 $ mtg start
 ```
 
-The Gateway will start the tenant apps, and accept connections on behalf of them.
+The Gateway will start the tenant apps, and accept connections on behalf of them. Gateway will be listening for connections on localhost at port 9000.
 
 The tenant "foo" will be accessible at `http://localhost:9000/apple`, and so on.
+
+A separate app for Gateway can be served at `http://localhost:9000/`.
 
 ## Features
 
