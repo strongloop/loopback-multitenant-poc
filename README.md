@@ -102,7 +102,7 @@ $ mtg start
 
 **Restart Gateway**
 
-Note supported currently.
+Not supported currently.
 
 ```
 $ mtg restart
@@ -110,7 +110,7 @@ $ mtg restart
 
 **Stop Gateway**
 
-Note supported currently. To stop, press `ctl+c`.
+Not supported currently. To stop, press `ctl+c`.
 
 ```
 $ mtg stop
@@ -138,7 +138,7 @@ $ mtm remove <tenant id>
 
 **Start tenant app**
 
-Note supported currently.
+Not supported currently.
 
 ```
 $ mtm start <tenant id>
@@ -146,7 +146,7 @@ $ mtm start <tenant id>
 
 **Stop tenant app**
 
-Note supported currently.
+Not supported currently.
 
 ```
 $ mtm stop <tenant id>
@@ -154,7 +154,7 @@ $ mtm stop <tenant id>
 
 **Restart tenant app (after making configuration changes)**
 
-Note supported currently.
+Not supported currently.
 
 ```
 $ mtm restart <tenant id>
