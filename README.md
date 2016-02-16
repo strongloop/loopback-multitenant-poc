@@ -55,6 +55,8 @@ $ mtm add foo
 ```
 **Create "Customer" model for tenant "foo"**
 
+This will create a directory named *foo* under the *tenants* directory.
+
 ```
 $ mtm model foo:Customer
 ```
@@ -63,7 +65,7 @@ $ mtm model foo:Customer
 ```
 $ mtm model foo:Order
 ```
-Make the necessary changes in the `datasources.json`, `model-config.json`, and the model files.
+Make the necessary changes in the `datasources.json`, `model-config.json`, and the model files for tenant "foo".
 
 Similarly, add tenant "bar", and create and edit the necessary files.
 
@@ -75,7 +77,7 @@ $ mtg start
 
 The Gateway will start the tenant apps, and accept connections on behalf of them. Gateway will be listening for connections on localhost at port 9000.
 
-The tenant "foo" will be accessible at `http://localhost:9000/apple`, and so on.
+The tenant "foo" will be accessible at `http://localhost:9000/foo`, and so on.
 
 A separate app for Gateway can be served at `http://localhost:9000/`.
 
