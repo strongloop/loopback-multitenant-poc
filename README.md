@@ -90,17 +90,17 @@ A separate app for Gateway can be served at `http://localhost:9000/`.
 
 ## Gateway Manager
 
-The gateway manager works as the front facing proxy for the tenany apps. It is available as the `mtg` command on the command line.
+The gateway manager works as the front facing proxy for the tenant apps. It is available as the `mtg` command on the command line.
 
-The gateway must be started before the tenant apps can be accessed.
+Gateway must be started before the tenant apps can be accessed.
 
-**Start gateway**
+**Start Gateway**
 
 ```
 $ mtg start
 ```
 
-**Restart gateway**
+**Restart Gateway**
 
 Note supported currently.
 
@@ -108,7 +108,7 @@ Note supported currently.
 $ mtg restart
 ```
 
-**Stop gateway**
+**Stop Gateway**
 
 Note supported currently. To stop, press `ctl+c`.
 
