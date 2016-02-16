@@ -55,11 +55,12 @@ $ mtm add foo
 ```
 **Create "Customer" model for tenant "foo"**
 
-This will create a directory named *foo* under the *tenants* directory.
-
 ```
 $ mtm model foo:Customer
 ```
+
+This will create a directory named *foo* under the *tenants* directory.
+
 **Create "Order" model for tenant "foo"**
 
 ```
