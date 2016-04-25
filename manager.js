@@ -10,16 +10,21 @@ if (argv._.length < 1) {
 
 var command = argv._[0];
 
-if (argv._.length < 2) {
-  return console.log('\n Usage: mtm %s <tenant id>\n', command)
+if (argv._.length < 2 && command === 'init') {
+  return console.log('\n Usage: mtm %s <app name>\n', command)
 }
 
-var tenantDir = 'tenants/' + tenantId;
-
-// this is where all the tenant apps will reside
-fs.mkdirpSync('tenants/');
+if (argv._.length < 2) {
+  return console.log('\n Usage: mtm %s <tenant name>\n', command)
+}
 
 switch (command) {
+
+  // init base LB app
+  case 'init':
+    var appName = argv._[1].toLowerCase();
+    commandLib.init(appName)
+    break;
 
   // add tenant
   case 'add':
@@ -32,24 +37,6 @@ switch (command) {
   case 'delete':
     var tenantId = argv._[1].toLowerCase();
     commandLib.remove(tenantId)
-    break;
-
-  // start tenant app
-  case 'start':
-    var tenantId = argv._[1].toLowerCase();
-    commandLib.start(tenantId)
-    break;
-
-  // restart tenant app
-  case 'restart':
-    var tenantId = argv._[1].toLowerCase();
-    commandLib.restart(tenantId)
-    break;
-
-  // stop tenant app
-  case 'stop':
-    var tenantId = argv._[1].toLowerCase();
-    commandLib.stop(tenantId)
     break;
 
   // add model to tenant app

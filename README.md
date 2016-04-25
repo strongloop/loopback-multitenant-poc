@@ -70,51 +70,6 @@ Make the necessary changes in the `datasources.json`, `model-config.json`, and t
 
 Similarly, add tenant "bar", and create and edit the necessary files.
 
-**Start the Gateway**
-
-```
-$ mtg start
-```
-
-The Gateway will start the tenant apps, and accept connections on behalf of them. Gateway will be listening for connections on localhost at port 9000.
-
-The tenant "foo" will be accessible at `http://localhost:9000/foo`, and so on.
-
-A separate app for Gateway can be served at `http://localhost:9000/`.
-
-## Features
-
-* Customize `model-config.json` and `datasources.json` for each tenant
-* A tenant's `model-config.json` and `datasources.json` can be updated without having to restart other tenants
-* Each tenant can have custom middleware, components, and boot scripts, if required
-
-## Gateway Manager
-
-The gateway manager works as the front facing proxy for the tenant apps. It is available as the `mtg` command on the command line.
-
-Gateway must be started before the tenant apps can be accessed.
-
-**Start Gateway**
-
-```
-$ mtg start
-```
-
-**Restart Gateway**
-
-Not supported currently.
-
-```
-$ mtg restart
-```
-
-**Stop Gateway**
-
-Not supported currently. To stop, press `ctl+c`.
-
-```
-$ mtg stop
-```
 
 ## Tenant Manager
 
