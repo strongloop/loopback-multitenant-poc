@@ -26,5 +26,13 @@
   "Item": {
     "dataSource": "db",
     "public": true
+  },
+  "pet": {
+    "dataSource": "db",
+    "public": true
+  },
+  "mobile": {
+    "dataSource": "db",
+    "public": true
   }
 }
