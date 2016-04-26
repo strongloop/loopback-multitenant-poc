@@ -1,5 +1,5 @@
 {
-  "name": "Planet",
+  "name": "Item",
   "properties": {
     "name": {
       "type": "string",
