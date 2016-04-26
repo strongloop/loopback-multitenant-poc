@@ -8,7 +8,6 @@ A base LoopBack app mounts the tenant sub apps with their own models and data so
 
 ## Instructions for a quick demo
 
-
 ```
 $ git clone git@github.com:strongloop/loopback-multitenant-poc.git
 $ cd loopback-multitenant-poc
@@ -22,9 +21,24 @@ $ node .
 
 The tenant manager is used for managing tenants and their models. It is available as the `mtm` command on the command line.
 
-Use a `tenant id` composed of alphanumerical characters only.
+```
+$ git clone git@github.com:strongloop/loopback-multitenant-poc.git
+$ cd loopback-multitenant-poc
+$ git checkout mounted-apps
+$ npm install
+$ npm link
+```
 
-The tenant config files must be manually configured in the POC.
+Now, that the `mtm` command is available to you, you can run the following anywhere on your machine.
+
+**Initialize a base LoopBack app**
+
+```
+$ mtm init <app name>
+```
+This will create the base LoopBack app, `cd` to the dir, and run `npm install` to install dependencies.
+
+From the app dir, execute the following:
 
 **Add tenant**
 
@@ -43,3 +57,5 @@ $ mtm remove <tenant id>
 ```
 $ mtm model <tenant id:model name>
 ```
+
+You will need to manually edit the model and data source files for the tenants.
