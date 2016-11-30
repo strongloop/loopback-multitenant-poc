@@ -1,0 +1,32 @@
+{
+  "name": "Item",
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "methods": {
+    "greet": {
+      "isStatic": true,
+      "accepts": [{
+        "arg": "msg",
+        "type": "string",
+        "http": {
+          "source": "query"
+        }
+      }],
+      "returns": {
+        "arg": "greeting",
+        "type": "string"
+      },
+      "http": {
+        "verb": "get"
+      }
+    }
+  }
+}
